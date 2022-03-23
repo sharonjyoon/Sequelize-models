@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const Song = {
+      async getAll() {
+        const res = await fetch('/api/song')
+        return res.json()
+      },
+      async create(data) {
+        const res = await fetch('/api/song', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+        return res.json()
+      },
+      async update(updates, id) {
+        await fetch(`/api/song/${id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updates)
+        })
+        return true
+      },
+      async delete(id) {
+        await fetch(`/api/song/${id}`, {
+          method: 'DELETE'
+        })
+        return true
+      }
+    }
+
+    // Song.getAll()
+    //   .then(song => {
+    //     console.log(song)
+    //   })
+    //   .catch(err => console.error(err))
+
+    // Song.create({
+    //   name: 'Mr',
+    //   artist: 'YOASOBI',
+    //   year: 2022,
+    //   genre: 'J-POP',
+    // })
+    //   .then(song => {
+    //     console.log(song)
+    //   })
+    //   .catch(err => console.error(err))
+
+    // Song.update({ isMultiplayer: true }, 6)
+    //   .then(() => {
+    //     console.log('Song updated!')
+    //   })
+    //   .catch(err => console.error(err))
+
+    // Song.delete(6)
+    //   .then(() => {
+    //     console.log('Song deleted!')
+    //   })
+    //   .catch(err => console.error(err))
+
+  </script>
+</body>
+
+</html>
