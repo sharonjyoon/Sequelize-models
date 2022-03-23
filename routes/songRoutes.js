@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Song } = require('../models')
 
 router.get('/songs', async function (req, res) {
-  const song = await Song.findAll({})
+  const songs = await Song.findAll({})
   res.json(song)
 })
 
