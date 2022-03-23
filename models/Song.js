@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config')
 
+class Song extends Model { }
+
 Song.init({
   title: {
     type: DataTypes.STRING,
@@ -18,7 +20,7 @@ Song.init({
   genre: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: 'NR'
+    defaultValue: 'Unknown'
   },
   
 }, { sequelize, modelName: 'song' })
