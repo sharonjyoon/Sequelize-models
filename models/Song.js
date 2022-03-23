@@ -21,7 +21,7 @@ Song.init({
     type: DataTypes.STRING,
     allowNull: false,
     defaultValue: 'Unknown'
-  },
+  }
   
 }, { sequelize, modelName: 'song' })
 
