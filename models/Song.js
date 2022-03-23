@@ -4,7 +4,7 @@ const sequelize = require('../config')
 class Song extends Model { }
 
 Song.init({
-  title: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false
   },
